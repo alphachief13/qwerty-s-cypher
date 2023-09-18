@@ -22,8 +22,8 @@ function criptografar(){
         }
     }
     arr = arr.join("")
-    statusElement.textContent = arr;
-    
+    statusElement.textContent = "Text encrypted and copied";
+    copiar(arr)
 }
 
 function descriptografar(){
@@ -42,10 +42,21 @@ function descriptografar(){
         }
     }
     arr = arr.join("")
-    statusElement.textContent = arr;
-    
+    statusElement.textContent = "Text decrypted and copied";
+    copiar(arr)
 
 }
+
+function copiar(textoParaCopiar){
+    let p1 = "Something is being typed";
+    let p2 = "Nothing is being typed";
+    if(!(textoParaCopiar === p1 || textoParaCopiar === p2)){
+        navigator.clipboard.writeText(textoParaCopiar);
+
+    }
+
+}
+
 
 inputPrincipal.addEventListener("input", ()=>{
     let valorInputPrincipal = inputPrincipal.value.toLowerCase();
